@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, select, button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Kalkulator Sederhana</h2>
+
+    <label for="value1">Nilai 1:</label>
+    <input type="text" id="value1" placeholder="Masukkan nilai 1">
+
+    <br>
+
+    <label for="operator">Operasi:</label>
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <br>
+
+    <label for="value2">Nilai 2:</label>
+    <input type="text" id="value2" placeholder="Masukkan nilai 2">
+
+    <br>
+
+    <button onclick="calculate()">Submit </button>
+
+    <br>
+
+    <label for="result">Hasil:</label>
+    <input type="text" id="result" disabled>
+
+    <script>
+        function calculate() {
+            var value1 = parseFloat(document.getElementById('value1').value);
+            var value2 = parseFloat(document.getElementById('value2').value);
+            var operator = document.getElementById('operator').value;
+
+            if (isNaN(value1) || isNaN(value2)) {
+                document.getElementById('result').value = 'Masukkan nilai yang valid';
+            } else {
+                switch (operator) {
+                    case '+':
+                        document.getElementById('result').value = value1 + value2;
+                        break;
+                    case '-':
+                        document.getElementById('result').value = value1 - value2;
+                        break;
+                    case '*':
+                        document.getElementById('result').value = value1 * value2;
+                        break;
+                    case '/':
+                        if (value2 !== 0) {
+                            document.getElementById('result').value = value1 / value2;
+                        } else {
+                            document.getElementById('result').value = 'Tidak bisa dibagi dengan 0';
+                        }
+                        break;
+                    default:
+                        document.getElementById('result').value = 'Operasi tidak valid';
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

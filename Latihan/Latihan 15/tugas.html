@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>Javascript Dialog</title>
+</head>
+<body>
+  <script>
+    // Alert
+    alert("Ini adalah contoh alert!");
+
+    // Prompt
+    var nama = prompt("Siapa nama kamu?", "");
+    document.write("<p>Hello " + nama + "</p>");
+
+    // Confirm
+    var yakin = confirm("Apakah kamu yakin akan mengunjungi instagram?");
+    if (yakin) {
+      window.location = "https://www.instagram.com";
+    } else {
+      document.write("Baiklah, tetap di sini saja ya :)");
+    }
+  </script>
+</body>
+</html>
